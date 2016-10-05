@@ -9,7 +9,8 @@ public class Bullet : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Die();
+        CurrentState = State.DEAD;
+        //Die();
 	}
 	
 	// Update is called once per frame

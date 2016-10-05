@@ -9,9 +9,13 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         GetComponentInChildren<SpriteRenderer>().color = Color.blue;
-        m_bulletSpawner = Component.FindObjectOfType<BulletSpawner>();
     }
 
+    public override void OnStartServer()
+    {
+        m_bulletSpawner = Component.FindObjectOfType<BulletSpawner>();
+    }
+    
     void Update()
     {
         if (!isLocalPlayer)
@@ -32,7 +36,7 @@ public class PlayerController : NetworkBehaviour
     [Command]
     void CmdFire()
     {
-        m_bulletSpawner.FireBullet(transform.position);
+        m_bulletSpawner.FireBullet(transform.position);        
         //NetworkServer.Spawn(bullet);
     }
 }

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TriggerDeathBullet : NetworkBehaviour {
 
-	void OnCollisionEnter(Collision2D _coll)
+	void OnTriggerEnter2D(Collider2D _coll)
     {
         if (_coll.gameObject.layer == LayerMask.NameToLayer("bullet"))
         {
