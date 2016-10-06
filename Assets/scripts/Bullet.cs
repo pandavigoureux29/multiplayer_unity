@@ -4,8 +4,9 @@ using System.Collections;
 
 public class Bullet : NetworkBehaviour {
 
-    public enum State { LAUNCHED, DEAD}
-    public State CurrentState { get; set; }
+    public enum State { LAUNCHED, DEAD }
+    [SyncVar]
+    public State CurrentState;
 
 	// Use this for initialization
 	void Start () {

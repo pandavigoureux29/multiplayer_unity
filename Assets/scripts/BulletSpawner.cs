@@ -31,10 +31,10 @@ public class BulletSpawner : NetworkBehaviour {
              _position,
              Quaternion.identity);
 
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0,1) * 4;
+        bullet.GetComponent<Bullet>().Launch(_position);
 
         // spawn the bullet on the clients
-        NetworkServer.Spawn(bullet);
+        NetworkServer.Spawn(bullet.gameObject);
 
         // when the bullet is destroyed on the server it will automaticaly be destroyed on clients
         Destroy(bullet, 2.0f);
